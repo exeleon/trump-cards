@@ -177,7 +177,7 @@ class _SinglePlayerDialogState extends State<SinglePlayerDialog> {
           ]),
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Singleplayer()));
+                MaterialPageRoute(builder: (context) => const Singleplayer()));
           },
         ),
       ],

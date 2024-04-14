@@ -176,7 +176,7 @@ class _CardEditorState extends State<CardEditor> {
             backgroundColor: Colors.green,
             content: Text(
               '✔ ${tr('cardSavedSuccessfully')}',
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             )),
       );
       Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
@@ -205,7 +205,7 @@ class _CardEditorState extends State<CardEditor> {
           key: _formKey,
           child: Column(
             children: [
-              Container(
+              SizedBox(
                   width: 400,
                   child: Padding(
                     padding: const EdgeInsets.all(20),

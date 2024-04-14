@@ -17,7 +17,7 @@ class GameCardBack extends StatefulWidget {
       required this.gameCard,
       required this.flipCard,
       required this.elevation,
-      this.languageCode = 'en'});
+      this.languageCode = 'es'});
 
   @override
   _GameCardBackState createState() => _GameCardBackState();

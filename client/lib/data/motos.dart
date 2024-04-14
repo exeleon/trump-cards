@@ -1,0 +1,43 @@
+import '../gameCard/cards.dart';
+
+const List<GameCard> motos = [
+  GameCard(
+    1,
+    'Moto Test 1',
+    '2002',
+    'MotoTest1.jpg',
+    'M 93 / CC BY-SA 3.0 DE',
+    'https://creativecommons.org/licenses/by-sa/3.0/de/deed.en',
+    200,
+    225,
+    2010,
+    8.1,
+    35800,
+  ),
+  GameCard(
+    2,
+    'Moto Test 3',
+    '2002',
+    'MotoTest1.jpg',
+    'M 93 / CC BY-SA 3.0 DE',
+    'https://creativecommons.org/licenses/by-sa/3.0/de/deed.en',
+    120,
+    225,
+    2010,
+    8.1,
+    35800,
+  ),
+  GameCard(
+    3,
+    'Moto Test 4',
+    '2002',
+    'MotoTest1.jpg',
+    'M 93 / CC BY-SA 3.0 DE',
+    'https://creativecommons.org/licenses/by-sa/3.0/de/deed.en',
+    300,
+    225,
+    2010,
+    8.1,
+    35800,
+  ),
+];

@@ -26,7 +26,7 @@ class LanguageDropdown extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 value: context.locale.toString(),
                 onChanged: (value) {
-                  context.setLocale(Locale(value ?? 'en'));
+                  context.setLocale(Locale(value ?? 'es'));
                 },
                 items: const [
                   DropdownMenuItem(

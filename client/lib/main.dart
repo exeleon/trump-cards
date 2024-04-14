@@ -16,6 +16,7 @@ void main() async {
   runApp(
     EasyLocalization(
         supportedLocales: const [
+          Locale('es'), // Spanish
           Locale('en'), // English
           Locale('ar'), // Arabic
           Locale('zh'), // Chinese
@@ -26,10 +27,9 @@ void main() async {
           Locale('ko'), // Korean
           Locale('pt'), // Portuguese
           Locale('ru'), // Russian
-          Locale('es'), // Spanish
         ],
         path: 'assets/translations',
-        fallbackLocale: const Locale('en'),
+        fallbackLocale: const Locale('es'),
         useOnlyLangCode: true,
         child: const App()),
   );

@@ -13,6 +13,8 @@ import '../data/cardDecks.dart';
 import '../gameCard/cards.dart';
 
 class Singleplayer extends StatefulWidget {
+  const Singleplayer({super.key});
+
   @override
   _SingleplayerState createState() => _SingleplayerState();
 }

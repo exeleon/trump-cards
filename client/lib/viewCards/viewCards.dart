@@ -38,7 +38,7 @@ class _ViewCards extends State<ViewCards> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(tr('viewCards')),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(40.0),
+          preferredSize: const Size.fromHeight(40.0),
           child: Container(
             constraints: const BoxConstraints(maxWidth: 800),
             padding: const EdgeInsets.fromLTRB(0, 0, 20, 10),
