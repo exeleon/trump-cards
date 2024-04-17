@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'motos.dart';
-// import 'cars.dart';
 
 import '../gameCard/cards.dart';
 import '../gameCard/measurementUnits.dart';
@@ -34,32 +33,4 @@ List<GameCardDeck> cardDecks = [
         measurementType: MeasurementType.money,
         isHigherBetter: false),
   ),
-  // GameCardDeck(
-  //   'Cars',
-  //   cars,
-  //   const Icon(
-  //     Icons.local_taxi_rounded,
-  //     color: Colors.white,
-  //   ),
-  //   Characteristic(
-  //       translationKey: 'power(Watt)',
-  //       measurementType: MeasurementType.power,
-  //       isHigherBetter: true),
-  //   Characteristic(
-  //       translationKey: 'topSpeed',
-  //       measurementType: MeasurementType.speed,
-  //       isHigherBetter: true),
-  //   Characteristic(
-  //       translationKey: 'weight',
-  //       measurementType: MeasurementType.weight,
-  //       isHigherBetter: false),
-  //   Characteristic(
-  //       label: '0-100 km/h',
-  //       measurementType: MeasurementType.time,
-  //       isHigherBetter: false),
-  //   Characteristic(
-  //       translationKey: 'price',
-  //       measurementType: MeasurementType.money,
-  //       isHigherBetter: false),
-  // ),
 ];

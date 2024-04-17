@@ -1,4 +1,7 @@
+// import 'dart:convert';
+
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart' show rootBundle;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -11,7 +14,7 @@ import 'settings/settings.dart';
 import 'statistics.dart';
 import 'viewCards/viewCards.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({
     super.key,
   });
@@ -55,24 +58,47 @@ class App extends StatelessWidget {
   }
 
   @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  // var jsonData;
+  // Future<void> loadJsonAsset() async {
+  //   final String jsonString =
+  //       await rootBundle.loadString('assets/data/motos.json');
+  //   var data = jsonDecode(jsonString);
+  //   setState(() {
+  //     jsonData = data;
+  //   });
+  //   print(jsonData);
+  // }
+
+  @override
+  void initState() {
+    super.initState();
+    // loadJsonAsset();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: SettingsController.instance,
       builder: (BuildContext context, Widget? child) {
+        // if (jsonData == null) {
+        //   return const Scaffold(
+        //     body: Center(child: CircularProgressIndicator()),
+        //   );
+        // }
         return MaterialApp(
           restorationScopeId: 'app',
           debugShowCheckedModeBanner: false,
-
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-
           onGenerateTitle: (context) => tr('appTitle'),
-          
           theme: ThemeData(),
           darkTheme: ThemeData.dark(),
           themeMode: SettingsController.instance.themeMode,
-
           onGenerateRoute: (RouteSettings routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,

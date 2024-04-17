@@ -36,7 +36,5 @@ flutter:
   assets:
     - assets/translations/
     - assets/images/
-    - assets/images/Cars/
-    - assets/images/Airplanes/
-    - assets/images/Rockets/
     - assets/images/Motos/
+    - assets/data/
