@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../data/cardDecks.dart';
 import '../game/multiplayerOnline.dart';
-import '../game/network.dart';
+import '../services/realtime/realtime_handler.dart';
+import '../services/realtime/websocket_handler.dart';
 import '../game/playerInfo.dart';
 import '../gameCard/cards.dart';
 import '../home/multiPlayerDialogOnline.dart';
@@ -18,7 +19,7 @@ class ConnectDialog extends StatefulWidget {
 }
 
 class _ConnectDialog extends State<ConnectDialog> {
-  NetworkHandler networkHandler = NetworkHandler();
+  RealtimeHandler realtimeHandler = WebSocketHandler();
   String statusMessage = tr('connecting');
   String errorMessage = '';
   List<Player> players = [];
@@ -33,7 +34,7 @@ class _ConnectDialog extends State<ConnectDialog> {
       return;
     }
 
-    networkHandler.listenForMessages((message) {
+    realtimeHandler.listenForMessages((message) {
       if (message.startsWith('CREATE_GAME_SUCCESS:')) {
         setState(() {
           App.gameCode = message.split(':')[1];
@@ -70,7 +71,7 @@ class _ConnectDialog extends State<ConnectDialog> {
                 builder: (context) => MultiPlayerOnline(
                     players: players,
                     stackUser: gameCardList,
-                    networkHandler: networkHandler)));
+                    realtimeHandler: realtimeHandler)));
       } else if (message.startsWith('ERROR:')) {
         setState(() {
           errorMessage = message.split(':')[1];
@@ -80,12 +81,11 @@ class _ConnectDialog extends State<ConnectDialog> {
 
     if (App.gameCode == '') {
       isStartButtonEnabled = true;
-      networkHandler.webSocketChannel!.sink
-          .add('CREATE_GAME:${App.username}:${App.selectedCardDeck}');
+      realtimeHandler
+          .send('CREATE_GAME:${App.username}:${App.selectedCardDeck}');
     } else {
       isStartButtonEnabled = false;
-      networkHandler.webSocketChannel!.sink
-          .add('JOIN_GAME:${App.gameCode}:${App.username}');
+      realtimeHandler.send('JOIN_GAME:${App.gameCode}:${App.username}');
     }
   }
 
@@ -110,7 +110,7 @@ class _ConnectDialog extends State<ConnectDialog> {
       message += cardIDs.sublist(startIndex, endIndex).join(',');
     }
 
-    networkHandler.webSocketChannel!.sink.add(message);
+    realtimeHandler.send(message);
   }
 
   @override
@@ -233,7 +233,7 @@ class _ConnectDialog extends State<ConnectDialog> {
 
   @override
   void dispose() {
-    networkHandler.close();
+    realtimeHandler.close();
     super.dispose();
   }
 }

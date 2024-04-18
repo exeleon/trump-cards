@@ -1,20 +1,30 @@
 import 'dart:async';
+import 'package:trump_cards/services/realtime/realtime_handler.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-class NetworkHandler {
-  WebSocketChannel? webSocketChannel;
+class WebSocketHandler implements RealtimeHandler {
+  WebSocketChannel? _webSocketChannel;
   StreamController<String>? _streamController;
 
-  NetworkHandler() {
-    webSocketChannel =
-        WebSocketChannel.connect(Uri.parse(const String.fromEnvironment("WS_URL", defaultValue: 'ws://localhost:8000')));
+  WebSocketHandler() {
+    _webSocketChannel = WebSocketChannel.connect(Uri.parse(
+        const String.fromEnvironment("WS_URL",
+            defaultValue: 'wss://seahorse-app-8ozgk.ondigitalocean.app')));
+    // defaultValue: 'ws://localhost:8000')));
   }
 
+  @override
   void close() {
-    webSocketChannel!.sink.close();
+    _webSocketChannel!.sink.close();
     if (_streamController != null) _streamController!.close();
   }
 
+  @override
+  void send(String message) {
+    _webSocketChannel!.sink.add(message);
+  }
+
+  @override
   void listenForMessages(Function(String) onMessageReceived) {
     if (_streamController != null) {
       _streamController!.stream.listen((message) {
@@ -22,7 +32,7 @@ class NetworkHandler {
       });
     } else {
       _streamController = StreamController<String>.broadcast();
-      webSocketChannel!.stream.listen((message) {
+      _webSocketChannel!.stream.listen((message) {
         _streamController!.add(message);
       });
       _streamController!.stream.listen((message) {

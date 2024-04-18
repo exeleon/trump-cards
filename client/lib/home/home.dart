@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'appBar.dart';
@@ -21,10 +20,10 @@ class HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: Theme.of(context).colorScheme.primary,
-        //   title: const MyAppBar(),
-        // ),
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          title: const MyAppBar(),
+        ),
         body: Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -38,31 +37,13 @@ class HomeState extends State<Home> {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const MyAppBar(),
                         const Column(
                           children: [
                             Image(
                                 image: AssetImage(
                                     'assets/images/trump-cards-logo-shadow.png'),
                                 height: 190),
-                            SizedBox(height: 10),
-                            // CupertinoSlidingSegmentedControl<int>(
-                            //     backgroundColor: Colors.black45,
-                            //     onValueChanged: (int? value) {
-                            //       setState(() {
-                            //         App.selectedCardDeck = value!;
-                            //       });
-                            //     },
-                            //     thumbColor:
-                            //         Theme.of(context).colorScheme.primary,
-                            //     groupValue: App.selectedCardDeck,
-                            //     children: cardDecks.asMap().map(
-                            //         (key, cardDeck) => MapEntry(
-                            //             key,
-                            //             Container(
-                            //                 padding: const EdgeInsets.all(7.0),
-                            //                 child: cardDeck.icon)))),
-                            SizedBox(height: 10),
+                            SizedBox(height: 20),
                           ],
                         ),
                         Column(

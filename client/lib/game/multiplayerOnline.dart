@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:trump_cards/data/cardDecks.dart';
-import 'package:trump_cards/game/network.dart';
 import 'package:trump_cards/game/messageList.dart';
+import 'package:trump_cards/services/realtime/realtime_handler.dart';
 
 import 'gameEndedDialog.dart';
 import 'playerInfo.dart';
@@ -12,7 +12,7 @@ import '../app.dart';
 import '../gameCard/cards.dart';
 
 class MultiPlayerOnline extends StatefulWidget {
-  final NetworkHandler networkHandler;
+  final RealtimeHandler realtimeHandler;
   final List<GameCard> stackUser;
   final List<Player> players;
 
@@ -20,7 +20,7 @@ class MultiPlayerOnline extends StatefulWidget {
       {super.key,
       required this.players,
       required this.stackUser,
-      required this.networkHandler});
+      required this.realtimeHandler});
 
   @override
   _MultiPlayerOnlineState createState() => _MultiPlayerOnlineState();
@@ -43,7 +43,7 @@ class _MultiPlayerOnlineState extends State<MultiPlayerOnline> {
     thisPlayer =
         widget.players.firstWhere((player) => player.name == App.username);
 
-    widget.networkHandler.listenForMessages((message) {
+    widget.realtimeHandler.listenForMessages((message) {
       if (message.startsWith('SEND_CARD_SUCCESS:')) {
         List<String> messageParts = message.split(':');
         int cardId = int.parse(messageParts[1]);
@@ -130,8 +130,8 @@ class _MultiPlayerOnlineState extends State<MultiPlayerOnline> {
 
   void send(String sendTo) {
     if (isSendingInProgress) return;
-    widget.networkHandler.webSocketChannel!.sink
-        .add('SEND_CARD:${widget.stackUser[0].id}:${thisPlayer.name}:$sendTo');
+    widget.realtimeHandler
+        .send('SEND_CARD:${widget.stackUser[0].id}:${thisPlayer.name}:$sendTo');
     isSendingInProgress = true;
   }
 
