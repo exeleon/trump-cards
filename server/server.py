@@ -164,7 +164,7 @@ async def handle_connection(websocket, path):
 
 
 async def main():
-    async with websockets.serve(handle_connection, "localhost", 8000):
+    async with websockets.serve(handle_connection, "0.0.0.0", 8080):
         print("Server started...")
         await asyncio.Future()  # run forever
 

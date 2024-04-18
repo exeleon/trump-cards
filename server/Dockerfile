@@ -5,6 +5,6 @@ COPY . /app
 
 RUN pip install websockets
 
-EXPOSE 8000
+EXPOSE 8080
 
 CMD ["python", "server.py"]
