@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Moto Test 1",
+    "subtitle": "2002",
+    "imagePath": "MotoTest1.jpg",
+    "imageAttribution": "M 93 / CC BY-SA 3.0 DE",
+    "imageLicenseLink": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "power": 100,
+    "topSpeed": 230,
+    "weight": 30.5,
+    "0-100km/h": 5.6,
+    "price": 10300000
+  },
+  {
+    "id": 2,
+    "title": "Moto Test 2",
+    "subtitle": "2002",
+    "imagePath": "MotoTest1.jpg",
+    "imageAttribution": "M 93 / CC BY-SA 3.0 DE",
+    "imageLicenseLink": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "power": 200,
+    "topSpeed": 230,
+    "weight": 30.5,
+    "0-100km/h": 5.6,
+    "price": 10300000
+  },
+  {
+    "id": 3,
+    "title": "Moto Test 3",
+    "subtitle": "2002",
+    "imagePath": "MotoTest1.jpg",
+    "imageAttribution": "M 93 / CC BY-SA 3.0 DE",
+    "imageLicenseLink": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "power": 300,
+    "topSpeed": 230,
+    "weight": 30.5,
+    "0-100km/h": 5.6,
+    "price": 10300000
+  },
+  {
+    "id": 4,
+    "title": "Moto Test 4",
+    "subtitle": "2002",
+    "imagePath": "MotoTest1.jpg",
+    "imageAttribution": "M 93 / CC BY-SA 3.0 DE",
+    "imageLicenseLink": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "power": 400,
+    "topSpeed": 230,
+    "weight": 30.5,
+    "0-100km/h": 5.6,
+    "price": 10300000
+  },
+  {
+    "id": 5,
+    "title": "Moto Test 5",
+    "subtitle": "2002",
+    "imagePath": "MotoTest1.jpg",
+    "imageAttribution": "M 93 / CC BY-SA 3.0 DE",
+    "imageLicenseLink": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "power": 500,
+    "topSpeed": 230,
+    "weight": 30.5,
+    "0-100km/h": 5.6,
+    "price": 10300000
+  }
+]
