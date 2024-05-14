@@ -10,7 +10,7 @@ class WebSocketHandler implements RealtimeHandler {
     _webSocketChannel = WebSocketChannel.connect(Uri.parse(
         const String.fromEnvironment("WS_URL",
             defaultValue: 'wss://seahorse-app-8ozgk.ondigitalocean.app')));
-    // defaultValue: 'ws://localhost:8000')));
+    // defaultValue: 'ws://localhost:8080')));
   }
 
   @override

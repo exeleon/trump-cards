@@ -47,6 +47,9 @@
   "connectedPlayers": "Connected players (max. 4):",
   "nameReceivedCardFromName": "{} received {} from {}",
   "nameKeptCard": "{} kept {}",
+  "playerWinWithCard": "{} win with {}",
+  "playerTurn": "{} turn",
+  "yourTurn": "It's your turn!",
 
   "exitGame": "Exit Game",
   "exit": "Exit",

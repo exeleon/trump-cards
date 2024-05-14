@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../data/cardDecks.dart';
-import '../game/multiplayerOnline.dart';
+import '../game/multiplayerOnlineV2.dart';
 import '../services/realtime/realtime_handler.dart';
 import '../services/realtime/websocket_handler.dart';
 import '../game/playerInfo.dart';
@@ -39,7 +39,7 @@ class _ConnectDialog extends State<ConnectDialog> {
         setState(() {
           App.gameCode = message.split(':')[1];
           statusMessage = tr('waitingForPlayers');
-          players.add(Player(name: App.username));
+          players.add(Player(name: App.username, isTurn: true));
         });
       } else if (message.startsWith('JOIN_GAME_SUCCESS')) {
         List<String> usernames = message.split(':').sublist(1);
@@ -68,7 +68,7 @@ class _ConnectDialog extends State<ConnectDialog> {
         return Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => MultiPlayerOnline(
+                builder: (context) => MultiPlayerOnlineV2(
                     players: players,
                     stackUser: gameCardList,
                     realtimeHandler: realtimeHandler)));
